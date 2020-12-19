@@ -9,7 +9,7 @@
   },
   "license": "MIT",
   "bin": {
-    "crd-jsonschema-converter": "./dist/cli.js"
+    "crd-jsonschema-converter": "cli.js"
   },
   "scripts": {
     "watch": "tsc -w",
