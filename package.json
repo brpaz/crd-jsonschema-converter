@@ -1,0 +1,78 @@
+{
+  "name": "@brpaz/crd-jsonschema-converter",
+  "description": "Cli tool that Converts Kubernetes CRDs into JSON Schema definitions",
+  "version": "1.0.0",
+  "author": {
+    "email": "oss@brunopaz.dev",
+    "name": "Bruno Paz",
+    "url": "https://brunopaz.dev"
+  },
+  "license": "MIT",
+  "bin": {
+    "crd-jsonschema-converter": "./dist/cli.js"
+  },
+  "scripts": {
+    "watch": "tsc -w",
+    "build": "tsc -p .",
+    "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
+    "release": "semantic-release",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@openapi-contrib/openapi-schema-to-json-schema": "^3.0.4",
+    "chalk": "^4.1.0",
+    "fs-extra": "^9.0.1",
+    "node-fetch": "^2.6.1",
+    "yaml": "^1.10.0",
+    "yargs": "^16.2.0"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/chalk": "^2.2.0",
+    "@types/fs-extra": "^9.0.5",
+    "@types/jest": "^26.0.19",
+    "@types/node": "^14.14.13",
+    "@types/node-fetch": "^2.5.7",
+    "@types/yaml": "^1.9.7",
+    "@types/yargs": "^15.0.11",
+    "@typescript-eslint/eslint-plugin": "^4.9.1",
+    "@typescript-eslint/parser": "^4.9.1",
+    "eslint": "^7.15.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-prettier": "^3.2.0",
+    "husky": "^4.3.5",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1",
+    "semantic-release": "^17.3.0",
+    "ts-jest": "^26.4.4",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.1.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "pkgRoot": "dist"
+        }
+      ],
+      "@semantic-release/git"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

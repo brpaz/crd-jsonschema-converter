@@ -1,0 +1,10 @@
+crds:
+  - name: cert-manager
+    sources:
+      master:
+        - https://raw.githubusercontent.com/jetstack/cert-manager/master/deploy/crds/crd-certificaterequests.yaml
+        - https://raw.githubusercontent.com/jetstack/cert-manager/master/deploy/crds/crd-certificates.yaml
+        - https://raw.githubusercontent.com/jetstack/cert-manager/master/deploy/crds/crd-challenges.yaml
+        - https://raw.githubusercontent.com/jetstack/cert-manager/master/deploy/crds/crd-clusterissuers.yaml
+        - https://raw.githubusercontent.com/jetstack/cert-manager/master/deploy/crds/crd-issuers.yaml
+        - https://raw.githubusercontent.com/jetstack/cert-manager/master/deploy/crds/crd-orders.yaml

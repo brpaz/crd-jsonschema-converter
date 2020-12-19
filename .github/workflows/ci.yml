@@ -1,0 +1,30 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  lint:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+      - uses: actions/checkout@v2
+      - run: yarn install
+      - run: yarn lint
+      - run: yarn build
+      - run: yarn test
+
+  release:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+      - run: yarn install
+      - run: yarn release
